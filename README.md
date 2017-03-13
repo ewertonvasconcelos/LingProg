@@ -1,2 +1,2 @@
 # LingProg
-Trabalhos da Disciplica nde LInguagens de Programação
+Trabalhos da Disciplina de Linguagens de Programação
