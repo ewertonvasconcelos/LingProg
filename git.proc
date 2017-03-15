@@ -1,0 +1,15 @@
+t clone "https://github.com/ewertonvasconcelos/LingProg.git"
+  133  ls
+  134  cd LingProg/
+  135  ls
+  136  vim index.html
+  137  ls
+  138  git status
+  139  git add index.html 
+  140  git commit -m "Criação do index.html"
+  141  git config --global user.email "ewerton.vasconcelos@poli.ufrj.br"
+  142  git config --global user.name "ewertonvasconcelos"
+  143  git commit -m "Criação do index.html"
+  144  git push
+  145  history
+
