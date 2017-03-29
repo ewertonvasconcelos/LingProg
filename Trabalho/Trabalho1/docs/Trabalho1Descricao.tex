@@ -8,16 +8,13 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{indentfirst}
 
 \title{Linguagens de Programação - Trabalho 1}
 \author{Ewerton Vasconcelos da Silva
         \and 
         Gabriel Silva Lopes }
 \date{Abril de 2017}
-
-
-
-
 
 \begin{document}
 
@@ -40,41 +37,58 @@
 \end{center}
 
 \section{Introdução}
- O algoritmo conhecido como Comb Sort fora criado por Wlodzimierz Dobosiewicz em 1980, porém somente em 1991 foi popularmente divulgado por Stephen Lacey e Richard Box 
- 
- 
+ Grande parte das aplicações de software utilizam do recurso de logs para registrar um histório de ocorrências, que pode ser fundamental na solução de um problema em uma processos de \textit{troubleshooting}. É nos arquivos de logs que um administrador de sistemas pode localizar informações que servem como input para a solução de problemas em uma aplicação, rede ou qualquer outro software, e até problemas de hardware.
 \section{A definição do Problema}
-O Comb Sort é baseado no bubble Sort, porém alguns conceitos na implementação o torna mais eficiente. enquanto o Blubble Sort realiza varreduras comparando pares de elementos
+É indescutível que os arquivos de log são de extrema importância para a solução de problemas, mas o que geralmente ocorre na prática, é que esses arquivos acabam sendo extremamente extensos devido ao grande número de aplicações que rodam em uma máquina e também à grande quantidade de informações que esses softwares escrevem nos \textit{log files}, que acabam sendo extensos e exigindo um grande ferramental \textit{(expressões regulares, filtros, ...)} de pesquisa para se extrair informações úteis. Visando isso, a aplicação do trabalho, consiste em um software escrito em \textbf{C++ e Perl} que une a praticidade do \textbf{Perl} para processar os \textit{log files} através de \textit{expressões regulares} e as interfaces dinâmicas que o \textbf{C++} para  oferecer ao usuário final mais praticidade e precisão na obtenção de informações dos logs de aplicações e sistema.
 
-\begin{figure}[htbp!] \begin{center}
-\includegraphics[width=0.6\linewidth]{fig1}
-\caption{Gráfico dos Testes para determinação do fator encolhimento. Gráfico Original do Artigo da Revista BYTE}
-\end{center} \end{figure}
+%\begin{figure}[htbp!] \begin{center}
+%\includegraphics[width=0.6\linewidth]{fig1}
+%\caption{Gráfico dos Testes para determinação do fator encolhimento. Gráfico Original do Artigo da Revista BYTE}
+%\end{center} \end{figure}
 
 
 \section{Inputs e Outputs do Software}
-Para o Comb Sort Temos as Seguintes complexidades Assintóticas.
+O usuário terá à sua disposição, \textbf{cinco} opções no programa em \textbf{Gráfico} que poderão ser incrementadas por sub-opções.
+	\begin{enumerate}
+		\item Últimos $\textbf{N}$ usuários que solicitaram permissões de \textit{Super User} (Potêncialmente capases de realizar uma modificação perigosa no sistema/rede);
+		\item Possível ataque intra-net ou via \textbf{\textit{SSH}} (Tentativas de login sucessivas sem sucesso, principalmente ao usuário \textbf{ root})
+		\item Últimos $\textbf{N}$ softwares instalados no sistema via repositórios (apt-get, yum, ...), e os respectivos autores das instalações.
+		\item 
+		\item 
+	\end{enumerate}
 
 \section{O Papel de Cada Software}
-Para o Comb Sort Temos as Seguintes complexidades Assintóticas.
+Cada software \textit{(C++ e Perl)} terá um diferente papel na aplicação final.
 \begin{itemize}
 \item C++: \\
-Como Temos 2 loop While concatenados, no pior caso, ambos os loops são executados $n$ vezes.
+Será responsável por executar os scripts em \textbf{Peal} e oferecer ao usuário uma \textbf{GUI} \textit{(Grafic User Interface)}, um ambiente amigável e de fácil ultilização.
 \item Perl: \\
-Como Temos 2 loop While concatenados, no pior caso, ambos os loops são executados $n$ vezes.
+Tratar os \textit{Log Files} extraindo as informações solicitadas, formatando e enviando ao software em C++.
 \end{itemize}
 
-\section{O Software em C++}
-O Comb Sort é baseado no bubble Sort, porém alguns conceitos na implementação o torna mais eficiente. enquanto o Blubble Sort realiza varreduras comparando pares de elementos
+\section{Inputs e Outputs do Software em C++}
+\begin{itemize}
+	\item Inputs: \\
+	Opções descritas em seção $3$ através de uma \textbf{GUI} \textit{(Grafic User Interface)} incluindo filtros por data e/o usuários.
 
-\section{O Software em Perl}
-O Comb Sort é baseado no bubble Sort, porém alguns conceitos na implementação o torna mais eficiente. enquanto o Blubble Sort realiza varreduras comparando pares de elementos
+	\item Outputs: \\
+	Chamadas aos Scripts em \textbf{Perl} responsáveis por explorar os \textit{Log Files}.\\
+	Resultados recebidos do software em \textbf{Perl} devidamente formatados na \textbf{GUI}.
+
+\end{itemize}
+
+\section{Inputs e Outputs do Software em Perl}
+\begin{itemize}
+	\item Inputs: \\
+	Chamadas do software em \textbf{C++} com os valores dos filtros solicitados pelo usuário.
+	\item Outputs: \\
+	Informações extraídas dos \textit{Log Files} semi formatadas para o software em \textbf{C++}.\\
+\end{itemize}
+\section{Plataformas}
+Em um primeiro momento, a proposta é que o programa seja compatível com sistemas baseados em \textbf{Linux/Unix}, mais especificamente em distribuições \textbf{Debian} \textit{(Ubuntu, Collax, o próprio Debian e outras)}
+
 
 \section{Conclusão}
-O algoritmo Comb Sort se mostrou muito eficiente, devido sua baixa complexidade para alguns casos, e complexidade aceitável em casos
-médios. Outro ponto interessante além da sua boa complexidade assintótica, é sua fácil implementação. Portanto, o Comb Sort se mostrou interessante para aplicações corriqueiras. 
-
-
-
+Por serem um histório de alterações e ações em um sistema, ou rede, manter e explorar arquivos de Log são ações que de extrema importância desta forma, o registro, a coleta e análise de logs são procedimentos vitais em auditorias de segurança dentro de uma organização. Sendo assim, a ferramenta proposta nesse texto se mostra de grande ultilidade, proporcionando uma economia de tempo, e um aumento na segurança dos sistemas computacionais.
 
 \end{document}
